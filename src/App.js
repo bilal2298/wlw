@@ -1,10 +1,11 @@
 
 import './App.css';
+import Registration from './pages/Registration';
 
 function App() {
   return (
-    <div className=" bg-blue-800 text-white text-center h-screen">
-     hi & bye
+    <div>
+    <Registration/>
     </div>
   );
 }
