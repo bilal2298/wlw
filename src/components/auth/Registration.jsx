@@ -3,9 +3,10 @@ import Input from '../Input/Input'
 import Checkbox from '../Input/Checkbox'
 
 const Registration = () => {
+  
   return (
     <>
-      <div className=' h-screen relative m-6 justify-center'>
+      <div className='h-[1200px] relative m-6 justify-center'>
 
 
         <div className='bg-[#4FD1C5] rounded-xl w-full h-1/2'>
