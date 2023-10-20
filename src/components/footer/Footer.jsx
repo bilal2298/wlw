@@ -2,6 +2,7 @@ import React from 'react'
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillInstagram } from 'react-icons/ai'
 import {IoLogoYoutube} from 'react-icons/io'
+import {AiOutlineArrowRight} from 'react-icons/ai'
 
 
 const Footer = () => {
@@ -14,7 +15,10 @@ const Footer = () => {
                         <span className='text-xl font-bold'>Sign up for news</span>
                         <p className='text-sm'>Keep up to date with the latest product launches and news. Find out more about our brands and get special promo codes.</p>
                         <input placeholder='Enter tour email' className='w-full rounded-lg focus:outline-none p-3 h-[48px]' type="text" />
-                        <button className='w-full h-[48px] text-base bg-[#4FD1C5] rounded-lg text-white'>Sign up for newsletter</button>
+                        <div className='w-full h-[48px] cursor-pointer flex items-center justify-around bg-[#4FD1C5] rounded-lg text-white'>
+                            <button className='text-base'>Sign up for newsletter</button>
+                            <AiOutlineArrowRight className='text-lg'/>
+                        </div>
                         <div className='flex gap-1'>
                             <input type="checkbox" />
                             <span className='text-sm'>I accept <span className='text-[#4FD1C5] text-sm'>the personal data management.</span></span>
@@ -83,9 +87,9 @@ const Footer = () => {
                     </div>
 
                     <div className='flex items-center gap-5'>
-                        <BsFacebook />
-                        <AiFillInstagram />
-                        <IoLogoYoutube/>
+                        <BsFacebook className='text-lg' />
+                        <AiFillInstagram className='text-lg' />
+                        <IoLogoYoutube className='text-lg'/>
                         <img src="./assets/images/nav-logo.png" alt="" />
                     </div>
 

@@ -2,11 +2,11 @@ import React from 'react'
 
 const Card = (props) => {
     const { image, title,description, author, date, category } = props.data
-    console.log(props.data)
+    // console.log(props.data)
 
     return (
         <div>
-            <article className='rounded-xl md:w-[376px] flex flex-col justify-between w-full h-[500px] shadow-xl p-2 '>
+            <article className='rounded-xl md:w-[376px] flex flex-col justify-between w-full h-[500px] shadow-m p-2 '>
                 <div className='h-[300px] rounded-xl border-amber-900 overflow-hidden border-xl mb-2.5'>
                     <img className='w-[100%] h-[100%]' src={image} alt="logo" />
                 </div>
