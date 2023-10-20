@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Navbar2 from './components/Navbar/Navbar2';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/others/ScrollToTop';
+import RegistrationBuyer from './components/auth/RegistrationBuyer';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' index element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
+          {/* <Route path="/registration" element={<RegistrationBuyer />} /> */}
       </Routes>
       <Footer/>
     

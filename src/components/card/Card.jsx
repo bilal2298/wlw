@@ -6,12 +6,12 @@ const Card = (props) => {
 
     return (
         <div>
-            <article className='rounded-xl md:w-[376px] w-full h-[500px]  shadow-2xl p-2 '>
-                <div className='h-[300px]  rounded-xl  border-amber-900 overflow-hidden border-xl mb-2.5'>
+            <article className='rounded-xl md:w-[376px] flex flex-col justify-between w-full h-[500px] shadow-xl p-2 '>
+                <div className='h-[300px] rounded-xl border-amber-900 overflow-hidden border-xl mb-2.5'>
                     <img className='w-[100%] h-[100%]' src={image} alt="logo" />
                 </div>
 
-                <div className='flex flex-col justify-between gap-3'>
+                
                     <div className='text-lg'>{category}</div>
 
 
@@ -24,7 +24,7 @@ const Card = (props) => {
                         <span className='text-lg'>{author}</span>
                         <span className='text-lg'>{date}</span>
                     </div>
-                </div>
+               
 
             </article>
         </div>

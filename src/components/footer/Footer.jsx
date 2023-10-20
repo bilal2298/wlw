@@ -8,8 +8,7 @@ const Footer = () => {
     return (
         <footer className=' h-auto bg-[#ECECEC]'>
 
-            <div className=' h-auto'>
-                <div className=' max-w-screen-2xl flex p-5 sm:flex-row flex-col justify-between  h-full m-auto'>
+                <div className=' max-w-screen-2xl flex p-5 gap-8 lg:flex-row flex-col items-center lg:justify-between  h-full m-auto'>
 
                     <div className='flex flex-col justify-between w-[301px] h-[306px] md:pb-0 pb-10'>
                         <span className='text-xl font-bold'>Sign up for news</span>
@@ -22,7 +21,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className=' flex justify-between h-auto gap-10 flex-wrap  '>
+                    <div className=' flex justify-between h-auto gap-5 xl:gap-10 flex-wrap  '>
 
                         <div className=' flex flex-col gap-5 h-full '>
                             <span className='font-bold text-xl'>How to buy</span>
@@ -72,7 +71,7 @@ const Footer = () => {
 
 
 
-                </div>
+               
             </div>
 
             <div className='w-full bg-[#E2E8F0] '>

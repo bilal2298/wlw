@@ -79,7 +79,7 @@ const Home = () => {
             <img className='w-full' src="./assets/images/bg.png" alt="" />
           </div>
 
-         <div className='flex flex-wrap m-6 gap-5 justify-center'>
+         <div className='flex flex-wrap m-6 gap-4 justify-center'>
          {blogs.map((data) => {
             return (<Card data={data} />)
           })}
