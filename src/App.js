@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Navbar2 from './components/Navbar/Navbar2';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/others/ScrollToTop';
+import Forget from './components/auth/Forget';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path='/' index element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
-          {/* <Route path="/registration" element={<RegistrationBuyer />} /> */}
+          <Route path="/forget" element={<Forget />} />
+         
       </Routes>
       <Footer/>
     

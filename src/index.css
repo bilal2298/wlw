@@ -18,3 +18,18 @@
     background-color: #4FD1C5;
     border-color: #4FD1C5;
   }
+
+  
+
+  .custom-checkbox1 {
+    /* appearance: none; */
+    /* -webkit-appearance: none; For older webkit-based browsers */
+    --tw-border-opacity: 0.35;
+    border: 2px solid rgb(220 38 38 / var(--tw-border-opacity));
+    
+    /* border-radius: 0.25rem;
+    outline: none;
+    padding: 0.25rem; 
+    margin-right: 0.25rem; 
+    transition: border-color 0.3s, background-color 0.3s;  */
+  }

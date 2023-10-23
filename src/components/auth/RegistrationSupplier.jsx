@@ -1,27 +1,55 @@
 import React from 'react'
 import Input from '../Input/Input'
 import Checkbox from '../Input/Checkbox'
+import { supplierRegisterSchema } from '../../schema';
+import { useFormik } from 'formik';
 
 const RegistrationSupplier = () => {
+
+    const initialValues = {
+        firstName:'',
+        lastName:'',
+        email:'',
+        organization:'',
+        password:'',
+        confirm_password:'',
+        country:'',
+        city:'',
+        state:'',
+        zipCode:'',
+        address: '',
+        gender: ''
+      };
+
+      const { values, errors, handleSubmit, handleChange, handleBlur, touched } = useFormik({
+        initialValues: initialValues,
+        validationSchema: supplierRegisterSchema,
+        onSubmit: (values) => {
+        //   await axios.post(`http://localhost:8080/api/v1/auth/login`, values).then((res) => {
+         
+        //   });
+          console.log(values)
+        },
+      });
     return (
         <>
-           
+             <form onSubmit={handleSubmit} className=' flex flex-col gap-6'>
                         <h3 className="md:text-lg text-base lg:text-xl xl:text-2xl font-medium">
                             Start with a free company profile now!
                         </h3>
 
-                        <div required className="flex items-center gap-10">
+                        <div className="flex items-center gap-10">
                             <div className='flex items-center gap-2'>
             
-                                <Checkbox type="radio" value="female" name="gender" id="female" />
-                                <label className=" text-sm xl:text-lg" htmlFor="female">
+                                <Checkbox checked={values.gender === 'male'} onChange={handleChange} onBlur={handleBlur} errors={errors.gender} touched={touched.gender} type="radio" value="male" name="gender" id="male" />
+                                <label className=" text-sm xl:text-lg" htmlFor="male">
                                     Mr
                                 </label>
                             </div>
                             <div className='flex items-center gap-2' >
              
-                                <Checkbox type="radio" value="male" name="gender" id="male" />
-                                <label className="text-sm xl:text-lg" htmlFor="male">
+                                <Checkbox checked={values.gender === 'female'} onChange={handleChange} onBlur={handleBlur} errors={errors.gender} touched={touched.gender} type="radio" value="female" name="gender" id="female" />
+                                <label className="text-sm xl:text-lg" htmlFor="female">
                                     Mrs/Miss
                                 </label>
                             </div>
@@ -37,14 +65,14 @@ const RegistrationSupplier = () => {
                                         First Name
                                     </label>
                  
-                                    <Input placeholder="Enter your first name" name="fname" id="fname" type="text" />
+                                    <Input onChange={handleChange} values={values.firstName} onBlur={handleBlur} errors={errors.firstName} touched={touched.firstName} placeholder="Enter your first name" name="firstName" id="fname" type="text" />
                                 </div>
                                 <div className=" lg:w-1/2 w-full gap-2 rounded-md flex flex-col p-1 ">
                                     <label className=" text-sm" htmlFor="lastName">
                                         Last Name
                                     </label>
                 
-                                    <Input placeholder="Enter your last name" name="lname" id="lname" type="text" />
+                                    <Input  onChange={handleChange} values={values.lastName} onBlur={handleBlur} errors={errors.lastName} touched={touched.lastName} placeholder="Enter your last name" name="lastName" id="lname" type="text" />
                                 </div>
                             </div>
 
@@ -53,7 +81,7 @@ const RegistrationSupplier = () => {
                                     Email
                                 </label>
                 
-                                <Input placeholder="Enter your email" name="email" id="email" type="email" />
+                                <Input  onChange={handleChange} values={values.email} onBlur={handleBlur} errors={errors.email} touched={touched.email} placeholder="Enter your email" name="email" id="email" type="email" />
                             </div>
                             <div className="flex justify-between lg:flex-row flex-col gap-5 ">
                                 <div className="gap-2 lg:w-1/2 w-full rounded-md flex flex-col p-1 ">
@@ -62,7 +90,7 @@ const RegistrationSupplier = () => {
                                     </label>
                 
 
-                                    <Input placeholder="Enter your password" name="password" id="password" type="password" />
+                                    <Input  onChange={handleChange} values={values.password} onBlur={handleBlur} errors={errors.password} touched={touched.password} placeholder="Enter your password" name="password" id="password" type="password" />
                                 </div>
 
 
@@ -71,7 +99,7 @@ const RegistrationSupplier = () => {
                                         Confirm password
                                     </label>
                     
-                                    <Input placeholder="Confirm your password" name="confirm_password" id="confirm_password" type="password" />
+                                    <Input  onChange={handleChange} values={values.confirm_password} onBlur={handleBlur} errors={errors.confirm_password} touched={touched.confirm_password} placeholder="Confirm your password" name="confirm_password" id="confirm_password" type="password" />
                                 </div>
 
 
@@ -85,7 +113,7 @@ const RegistrationSupplier = () => {
                                     Organization Name
                                 </label>
                 
-                                <Input placeholder="Enter Organization name" name="company" id="company" type="text" />
+                                <Input  onChange={handleChange} values={values.organization} onBlur={handleBlur} errors={errors.organization} touched={touched.organization} placeholder="Enter Organization name" name="organization" id="company" type="text" />
                             </div>
 
                             <div className="flex lg:flex-row flex-col gap-5 justify-between">
@@ -94,14 +122,14 @@ const RegistrationSupplier = () => {
                                         Country
                                     </label>
                 
-                                    <Input placeholder="Enter country name" name="country" id="country" type="text" />
+                                    <Input  onChange={handleChange} values={values.country} onBlur={handleBlur} errors={errors.country} touched={touched.country} placeholder="Enter country name" name="country" id="country" type="text" />
                                 </div>
                                 <div className=" lg:w-1/2 w-full gap-2 rounded-md flex flex-col p-1 ">
                                     <label className=" text-sm" htmlFor="city">
                                         City
                                     </label>
                 
-                                    <Input placeholder="Enter city name" name="city" id="city" type="text" />
+                                    <Input  onChange={handleChange} values={values.city} onBlur={handleBlur} errors={errors.city} touched={touched.city} placeholder="Enter city name" name="city" id="city" type="text" />
                                 </div>
                             </div>
 
@@ -111,14 +139,14 @@ const RegistrationSupplier = () => {
                                         State/Region/Province
                                     </label>
                   
-                                    <Input placeholder="Enter your province " name="province" id="province" type="text" />
+                                    <Input  onChange={handleChange} values={values.state} onBlur={handleBlur} errors={errors.state} touched={touched.state} placeholder="Enter your province " name="state" id="province" type="text" />
                                 </div>
                                 <div className=" lg:w-1/3 w-full gap-2 rounded-md flex flex-col p-1 ">
                                     <label className="ml-1 text-sm" htmlFor="code">
                                         Zip Code
                                     </label>
                  
-                                    <Input placeholder="Enter zip code " name="code" id="code" type="number" />
+                                    <Input  onChange={handleChange} values={values.zipCode} onBlur={handleBlur} errors={errors.zipCode} touched={touched.zipCode} placeholder="Enter zip code " name="zipCode" id="code" type="number" />
                                 </div>
                             </div>
 
@@ -127,7 +155,7 @@ const RegistrationSupplier = () => {
                                     Address
                                 </label>
                 
-                                <Input placeholder="Enter your address " name="address" id="address" type="text" />
+                                <Input  onChange={handleChange} values={values.address} onBlur={handleBlur} errors={errors.address} touched={touched.address} placeholder="Enter your address " name="address" id="address" type="text" />
                             </div>
 
 
@@ -148,10 +176,10 @@ const RegistrationSupplier = () => {
 
                         </div>
 
-                        <button type='submit' className="bg-[#4FD1C5] text-white h-11 py-2 w-full text-base font-semibold rounded-md" >
+                        <button type="submit" className="bg-[#4FD1C5] text-white h-11 py-2 w-full text-base font-semibold rounded-md" >
                             Start Registration
                         </button>
-                    
+                        </form>
         </>
     )
 }

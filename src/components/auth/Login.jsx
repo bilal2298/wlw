@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from 'react'
+
 import ToggleButton from '../others/ToggleButton'
-import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+// import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import Input from '../Input/Input'
 import Checkbox from '../Input/Checkbox'
 import { Link } from 'react-router-dom'
+import { loginSchema } from '../../schema'
+import { useFormik } from 'formik'
 
 const Login = () => {
 
-    // const [isMobile, setIsMobile] = useState(false) //for hiding div in mobile
+    const initialValues = {
+        email: '',
+        password:''
+      };
 
-    // useEffect(() => {
-
-    //     const checkMobile = () => {
-    //         setIsMobile(window.innerWidth <= 770)
-    //     }
-
-    //     checkMobile()
-
-    //     window.addEventListener('resize', checkMobile);
-
-    //     return () => {
-    //         window.removeEventListener('resize', checkMobile);
-    //     };
-    // }, [])
+      const { values, errors, handleSubmit, handleChange, handleBlur, touched } = useFormik({
+        initialValues: initialValues,
+        validationSchema: loginSchema,
+        onSubmit: async (values) => {
+        //   await axios.post(`http://localhost:8080/api/v1/auth/login`, values).then((res) => {
+         
+        //   });
+          console.log(values)
+        },
+      });
 
     return (
         <>
@@ -67,22 +68,14 @@ const Login = () => {
 
 
                         <form
-                            // onSubmit={submitHandler}
+                            onSubmit={handleSubmit}
                             className="bg-white flex flex-col gap-10 rounded-3xl sm:w-100% lg:w-[100%]"
                         >
 
                             <div required className="flex md:justify-between justify-start gap-5 items-center  ">
 
                                 <div className='flex items-center gap-2'>
-                                    {/* <input
-                                        className="w-5 h-5 custom-checkbox "
-                                        // onChange={changeHandler}
-                                        type="radio"
-                                        value="buyer"
-                                        name="user"
-                                        id="buyer"
-
-                                    /> */}
+                                 
                                     <Checkbox type="radio" value="buyer" name="user" id="buyer" />
                                     <label className=" font-semibold text-base xl:text-lg" htmlFor="buyer">
                                         Buyer
@@ -90,14 +83,7 @@ const Login = () => {
                                 </div>
 
                                 <div className='flex items-center gap-2' >
-                                    {/* <input
-                                        className=" w-6 h-6 border custom-checkbox rounded-full checked:border-transparent focus:outline-none"
-                                        // onChange={changeHandler}
-                                        type="radio"
-                                        value="supplier"
-                                        name="user"
-                                        id="supplier"
-                                    /> */}
+                                   
 
                                     <Checkbox type="radio" value="supplier" name="user" id="supplier" />
                                     <label className=" font-semibold text-base xl:text-lg" htmlFor="supplier">
@@ -123,16 +109,8 @@ const Login = () => {
                                         <label className="text-sm" htmlFor="email">
                                             Email
                                         </label>
-                                        {/* <input
-                                        // onChange={changeHandler}
-                                        name="email"
-                                        required
-                                        className="max-w-auto p-2 focus:outline-none border"
-                                        id="email"
-                                        type="email"
-                                        placeholder="e.g myname@company.com"
-                                    /> */}
-                                        <Input placeholder="Enter your e-mail" name="email" id="email" type="email" />
+                                     
+                                        <Input onChange={handleChange} values={values.email} onBlur={handleBlur} errors={errors.email} touched={touched} placeholder="Enter your e-mail" name="email" id="email" type="email" />
                                     </div>
 
                                     <div className="g w-full rounded-md flex flex-col p-1  ">
@@ -140,22 +118,12 @@ const Login = () => {
                                             <label className="text-sm" htmlFor="password">
                                                 Password
                                             </label>
-                                            {/* <input
-                                        // onChange={changeHandler}
-                                        name="password"
-                                        required
-                                        placeholder="********"
-                                        className="max-w-auto focus:outline-none p-2 border"
-                                        id="password"
-                                        type="password"
-                                        minLength={8}
-                                        /> */}
-
-                                            <Input placeholder="Enter your password" name="password" id="password" type="password" />
+                                         
+                                            <Input onChange={handleChange} values={values.password} onBlur={handleBlur} errors={errors.password} touched={touched} placeholder="Enter your password" name="password" id="password" type="password" />
                                         </div>
-                                        <span className=" text-[#4FD1C5] text-end text-xs " >
+                                       <Link to='/forget' className='text-end'> <span className=" text-[#4FD1C5] text-xs " >
                                             Forgot Password?
-                                        </span>
+                                        </span></Link>
                                     </div>
                                 </div>
 

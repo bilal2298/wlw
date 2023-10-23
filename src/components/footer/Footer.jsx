@@ -14,7 +14,7 @@ const Footer = () => {
                     <div className='flex flex-col justify-between w-[301px] h-[306px] md:pb-0 pb-10'>
                         <span className='text-xl font-bold'>Sign up for news</span>
                         <p className='text-sm'>Keep up to date with the latest product launches and news. Find out more about our brands and get special promo codes.</p>
-                        <input placeholder='Enter tour email' className='w-full rounded-lg focus:outline-none p-3 h-[48px]' type="text" />
+                        <input placeholder='Enter your email' className='w-full rounded-lg focus:outline-none p-3 h-[48px]' type="text" />
                         <div className='w-full h-[48px] cursor-pointer flex items-center justify-around bg-[#4FD1C5] rounded-lg text-white'>
                             <button className='text-base'>Sign up for newsletter</button>
                             <AiOutlineArrowRight className='text-lg'/>
@@ -80,17 +80,21 @@ const Footer = () => {
 
             <div className='w-full bg-[#E2E8F0] '>
 
-                <div className='max-w-screen-2xl flex justify-between items-center h-[94px]  m-auto'>
+                <div className='max-w-screen-2xl p-2 flex justify-between items-center h-[94px]  m-auto'>
 
                     <div>
                         &copy; 2021 Divante S.A.
                     </div>
 
-                    <div className='flex items-center gap-5'>
+                    <div className='flex flex-col sm:flex-row items-center  gap-2 sm:gap-5'>
+                        <div className='flex gap-1'>
                         <BsFacebook className='text-lg' />
                         <AiFillInstagram className='text-lg' />
                         <IoLogoYoutube className='text-lg'/>
-                        <img src="./assets/images/nav-logo.png" alt="" />
+                        </div>
+                       <div>
+                       <img src="./assets/images/nav-logo.png" alt="" />
+                       </div>
                     </div>
 
                 </div>
