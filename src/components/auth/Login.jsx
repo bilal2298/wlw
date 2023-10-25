@@ -1,17 +1,20 @@
 
 import ToggleButton from '../others/ToggleButton'
-// import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import Input from '../Input/Input'
 import Checkbox from '../Input/Checkbox'
 import { Link } from 'react-router-dom'
 import { loginSchema } from '../../schema'
 import { useFormik } from 'formik'
+import {loginSuccess} from '../toastMessages/Messages'
+
 
 const Login = () => {
-
+ 
     const initialValues = {
         email: '',
-        password:''
+        password:'',
+        user:''
       };
 
       const { values, errors, handleSubmit, handleChange, handleBlur, touched } = useFormik({
@@ -21,28 +24,30 @@ const Login = () => {
         //   await axios.post(`http://localhost:8080/api/v1/auth/login`, values).then((res) => {
          
         //   });
-          console.log(values)
+        console.log(values)
+        loginSuccess();
+        
         },
       });
 
     return (
         <>
-            <div className='flex  flex-col md:flex-row-reverse  h-screen p-5'>
+            <div className='flex flex-col md:flex-row-reverse h-screen px-5'>
 
 
                 <div className=' flex flex-col justify-between  bg-[#4FD1C5] w-full md:w-[40%] h-auto md:h-full sm:rounded-l-3xl'>
 
 
-                    <div className='flex justify-end m-5'>
-                        <select className=" relative block appearance-none bg-transparent px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline-blue focus:border-black-300">
-                            <option>ENG lag</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                            <option>Option 4</option>
+                    <div className='flex relative justify-end m-5'>
+                        <select className=" relative block appearance-none text-white bg-transparent px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline-blue focus:border-black-300">
+                            <option className='text-black' >ENG language</option>
+                            <option className='text-black'>Option 2</option>
+                            <option className='text-black'>Option 3</option>
+                            <option className='text-black'>Option 4</option>
                         </select>
-                        {/* <label className=' absolute top-[3rem] right-12'>
+                        <label className=' absolute top-3 right-3 text-white'>
                             <MdOutlineKeyboardArrowDown />
-                        </label> */}
+                        </label>
                     </div>
 
                     <div className='flex justify-center items-center gap-4'>
@@ -76,7 +81,7 @@ const Login = () => {
 
                                 <div className='flex items-center gap-2'>
                                  
-                                    <Checkbox type="radio" value="buyer" name="user" id="buyer" />
+                                    <Checkbox checked={values.user === 'buyer'} onChange={handleChange} onBlur={handleBlur} errors={errors.user} touched={touched.user} type="radio" value="buyer" name="user" id="buyer" />
                                     <label className=" font-semibold text-base xl:text-lg" htmlFor="buyer">
                                         Buyer
                                     </label>
@@ -85,7 +90,7 @@ const Login = () => {
                                 <div className='flex items-center gap-2' >
                                    
 
-                                    <Checkbox type="radio" value="supplier" name="user" id="supplier" />
+                                    <Checkbox checked={values.user === 'supplier'} onChange={handleChange} onBlur={handleBlur} errors={errors.user} touched={touched.user} type="radio" value="supplier" name="user" id="supplier" />
                                     <label className=" font-semibold text-base xl:text-lg" htmlFor="supplier">
                                         Supplier
                                     </label>
@@ -110,7 +115,7 @@ const Login = () => {
                                             Email
                                         </label>
                                      
-                                        <Input onChange={handleChange} values={values.email} onBlur={handleBlur} errors={errors.email} touched={touched} placeholder="Enter your e-mail" name="email" id="email" type="email" />
+                                        <Input onChange={handleChange} values={values.email} onBlur={handleBlur} errors={errors.email} touched={touched.email} placeholder="Enter your e-mail" name="email" id="email" type="email" />
                                     </div>
 
                                     <div className="g w-full rounded-md flex flex-col p-1  ">
@@ -119,7 +124,7 @@ const Login = () => {
                                                 Password
                                             </label>
                                          
-                                            <Input onChange={handleChange} values={values.password} onBlur={handleBlur} errors={errors.password} touched={touched} placeholder="Enter your password" name="password" id="password" type="password" />
+                                            <Input onChange={handleChange} values={values.password} onBlur={handleBlur} errors={errors.password} touched={touched.password} placeholder="Enter your password" name="password" id="password" type="password" />
                                         </div>
                                        <Link to='/forget' className='text-end'> <span className=" text-[#4FD1C5] text-xs " >
                                             Forgot Password?
@@ -134,7 +139,7 @@ const Login = () => {
                                 </div>
                             </div>
 
-                            <button className="bg-[#4FD1C5] text-white px-1 py-2 w-full  rounded-md" >
+                            <button type='submit' className="bg-[#4FD1C5] text-white px-1 py-2 w-full  rounded-md" >
                                 Sign in
                             </button>
 
@@ -146,6 +151,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            
         </>
     )
 }

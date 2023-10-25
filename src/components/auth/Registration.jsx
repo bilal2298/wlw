@@ -18,7 +18,7 @@ const Registration = () => {
     };
 
     return (
-        <div className="lg:h-[1200px] h-[900px] relative m-6 justify-center">
+        <div className="lg:h-[1200px] h-[900px] relative mx-6 justify-center">
             <div className="bg-[#4FD1C5] rounded-xl w-full h-1/2">
                 <div className="flex absolute flex-col w-full top-16 items-center">
                     <h1 className="text-white font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">Welcome!</h1>

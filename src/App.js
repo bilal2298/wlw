@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/LoginPage';
@@ -9,13 +8,16 @@ import Navbar2 from './components/Navbar/Navbar2';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/others/ScrollToTop';
 import Forget from './components/auth/Forget';
+import { ToastContainer } from 'react-toastify';
+import Sidebar from './supplier/sidebar/Sidebar';
+import NavbarDash from './supplier/components/navdash/NavbarDash';
 
 
 function App() {
   
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/>
     <Navbar2/>
     <ScrollToTop/>
       <Routes>
@@ -25,7 +27,10 @@ function App() {
           <Route path="/forget" element={<Forget />} />
          
       </Routes>
-      <Footer/>
+      <Footer/> */}
+      <Sidebar/>
+      <NavbarDash/>
+      <ToastContainer autoClose='3000' />
     
     </>
   );

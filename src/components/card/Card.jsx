@@ -15,8 +15,8 @@ const Card = (props) => {
                     <div className='text-lg'>{category}</div>
 
 
-                    <h3 className='font-medium text-2xl leading-tight'>{title.slice(0, 15)}</h3>
-                    <p className='font-base text-lg leading-tight'>{description.slice(0, 80)}...</p>
+                    <h3 className='font-medium text-xl leading-tight'>{title.slice(0, 15)}</h3>
+                    <p className='font-base text-base leading-tight'>{description.slice(0, 80)}...</p>
 
 
 

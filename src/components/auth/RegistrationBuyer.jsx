@@ -5,6 +5,8 @@ import { buyerRegisterSchema } from '../../schema';
 import { useFormik } from 'formik';
 
 const RegistrationBuyer = () => {
+
+  
   const initialValues = {
     firstName:'',
     lastName:'',
@@ -36,7 +38,7 @@ const RegistrationBuyer = () => {
     <>
         <form onSubmit={handleSubmit} className=' flex flex-col gap-6' >
             <h3 className="md:text-lg text-base lg:text-xl xl:text-2xl font-medium">
-              Start with a free company profile now!
+              Start with a free profile now!
             </h3>
 
             <div required className="flex items-center gap-10">
@@ -133,14 +135,14 @@ const RegistrationBuyer = () => {
                     Phone Number
                   </label>
 
-                  <div className='absolute top-8 '>
-                    <select className='bg-[#ECECEC] h-10 rounded-md' name="" id="">
+                  <div className='absolute top-[34px] left-[5px]'>
+                    <select className='bg-[#ECECEC] h-[37px] rounded-md' name="" id="">
                       <option value="">US -1</option>
                       <option value="">US -1</option>
                       <option value="">US -1</option>
                     </select>
                   </div>
-                  <Input onChange={handleChange} values={values.phone} onBlur={handleBlur} errors={errors.phone} touched={touched.phone}  placeholder="Enter your phone" pl="pl-16" name="phone" id="phone" type="number" />
+                  <Input onChange={handleChange} values={values.phone} onBlur={handleBlur} errors={errors.phone} touched={touched.phone}  placeholder="Enter your phone" pl="pl-16" name="phoneNo" id="phone" type="number" />
                 </div>
 
 

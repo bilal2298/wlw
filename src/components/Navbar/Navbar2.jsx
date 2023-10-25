@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 const Navbar2 = () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -12,8 +12,8 @@ const Navbar2 = () => {
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
 
                             {/* <!-- Mobile menu button--> */}
-                            <button onClick={() => setIsOpen(!isOpen)}  type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#4FD1C5] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                                
+                            <button onClick={() => setIsOpen(!isOpen)} type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#4FD1C5] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+
                                 <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
@@ -26,34 +26,40 @@ const Navbar2 = () => {
                                 <img className=" w-auto" src="./assets/images/nav-logo.png" alt="Your Company" />
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
-                                <div className="flex items-center space-x-4">
-                                    {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                                    <Link to='/' className=" rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</Link>
-                                    <Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">
-                                        <select className=" relative block appearance-none bg-transparent px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline-blue focus:border-black-300">
-                                            <option>Categories</option>
-                                            <option>Import</option>
-                                            <option>Export</option>
-                                            <option>Companies</option>
-                                        </select>
-                                    </Link>
-                                    <Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Import</Link>
-                                    <Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Export</Link>
-                                    <Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Companies</Link>
-                                    <Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Prices</Link>
+                                <div className="flex items-center ">
+                                    <ul className='flex items-center justify-center'>
+                                        <li><Link to='/' className=" rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</Link></li>
+                                        <li><div className=' cursor-pointer h-16 relative hidden lg:flex font-medium group '> <span className='flex gap-1 items-center'>
+                                            <span className='hidden px-3 py-2 text-sm font-medium lg:block'>Categories  <MdOutlineKeyboardArrowDown className='absolute top-[26px] left-[80px]' /></span>
+                                        </span>
+                                            <div className='absolute shadow-md w-44 h-44 top-[70px] z-[9999] hidden right-[-65px] rounded-lg bg-white text-black group-hover:hidden lg:group-hover:block'>
+                                                <span className='text-center'>inside Section</span>
+
+                                            </div>
+                                        </div></li>
+                                        <li><Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Import</Link></li>
+                                        <li><Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Export</Link></li>
+                                        <li><Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Companies</Link></li>
+                                        <li><Link to='' className=" rounded-md px-3 py-2 text-sm font-medium">Prices</Link></li>
+                                    </ul>
+
+                                    
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div className=" md:flex hidden items-center pr-2 sm:inset-auto  sm:pr-0">
-                            <button type="button" className="relative rounded-full  p-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <div className=" md:flex  hidden items-center pr-2 sm:inset-auto  sm:pr-0">
+                            <button type="button" className=" rounded-full relative p-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">
 
 
-                                <select className=" relative block appearance-none bg-transparent px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline-blue focus:border-black-300">
+                                <select className="  block appearance-none bg-transparent px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline-blue focus:border-black-300">
                                     <option>ENG(US)</option>
                                     <option>Option 2</option>
                                     <option>Option 3</option>
                                     <option>Option 4</option>
                                 </select>
+                                <MdOutlineKeyboardArrowDown className='absolute top-4 right-6 ' />
                             </button>
 
 
@@ -69,7 +75,7 @@ const Navbar2 = () => {
 
 
                 {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-            { isOpen && <div className="sm:hidden w-full h-full fixed bg-[#4FD1C5]" id="mobile-menu">
+                {isOpen && <div className="sm:hidden w-full h-full fixed bg-[#4FD1C5]" id="mobile-menu">
                     <div className="space-y-1 px-2 text-center pt-16">
                         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                         <Link to='' className=" block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</Link>
@@ -78,7 +84,7 @@ const Navbar2 = () => {
                         <Link to='' className=" block rounded-md px-3 py-2 text-base font-medium">Companies</Link>
                         <Link to='' className=" block rounded-md px-3 py-2 text-base font-medium">Prices</Link>
                     </div>
-                    </div>}
+                </div>}
             </nav>
         </div>
     )

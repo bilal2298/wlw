@@ -89,11 +89,11 @@ const Home = () => {
             <img className='w-full' src="./assets/images/bg.png" alt="" />
           </div>
 
-          <div className='max-w-screen-2xl m-auto p-5 flex flex-col gap-3'>
+          <div className='max-w-screen-2xl m-auto p-5 flex flex-col gap-2'>
             <span className='font-bold text-4xl'>Home</span>
-            <p className='text-base'>{isSliced ? sliceText: originalText}</p>
+            <p className={` text-base `}>{isSliced ? sliceText: originalText}</p>
            <div>
-           <button onClick={()=>loadMore()} className='text-[#4FD1C5] text-base font-medium'>{isSliced? 'Show more': "Show less"}</button>
+           <button onClick={()=>loadMore()} className={`text-[#4FD1C5] ${isSliced ? 'shadow-2xl': 'shadow-none'} text-base font-medium`}>{isSliced? 'Show more': "Show less"}</button>
            </div>
           </div>
 
